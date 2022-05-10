@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <LiquidCrystal.h>
 
 #define test_period 5000000         //define test period in microseconds
