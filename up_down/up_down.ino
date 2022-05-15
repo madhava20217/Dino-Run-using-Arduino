@@ -28,25 +28,22 @@ boolean up = 1;             // jumping up, is 1 if jumping
 int current_angle = start_angle;
 
 void loop(){
-    // if(digitalRead(pin_button)) {
-    //     digitalWrite(LED_BUILTIN, HIGH);
-    //     Serial.println("BUTTON IS BEING PRESSED");
-    // }
-
-    delay(500);
-
-    digitalWrite(LED_BUILTIN, LOW);
-
-    
-    // jumping = true;
-
-
-    // delay(5000);
-    
-}
-
-void up_down_subroutine(){
-    if(jumping){
-        
+    if(digitalRead(pin_button) && !jumping) {
+        jumping = true;
     }
+
+    if(jumping){
+        if(current_angle >= end_angle) up = -1;     //for moving down
+
+        current_angle+=up*inp_step;
+
+        limited_movement.write(current_angle);
+
+
+        if(current_angle <= start_angle){
+            jumping = false;
+            //ending jumps
+        }
+    }
+    
 }
