@@ -31,6 +31,7 @@ int current_angle = start_angle;
 void loop(){
     if(digitalRead(pin_button) && !jumping) {
         jumping = true;
+        up = 1;
         Serial.println("JUMPING");
     }
 
@@ -45,7 +46,9 @@ void loop(){
         if(current_angle <= start_angle){
             jumping = false;
             limited_movement.write(start_angle);
+            current_angle = start_angle;
             //ending jumps
+            up = 1;
         }
     }
     
