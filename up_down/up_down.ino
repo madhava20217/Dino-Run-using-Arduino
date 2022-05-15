@@ -7,7 +7,7 @@
 #define inp_step 1          // step size for limited servo
 
 #define start_angle 45      // start angle
-#define end_angle 180-start_angle       // terminal angle
+#define end_angle 135       // terminal angle
 
 
 Servo limited_movement;     // limited movement servo
@@ -44,6 +44,7 @@ void loop(){
 
         if(current_angle <= start_angle){
             jumping = false;
+            limited_movement.write(start_angle);
             //ending jumps
         }
     }
