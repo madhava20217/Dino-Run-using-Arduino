@@ -7,13 +7,14 @@
 #define inp_step 1          // step size for limited servo
 
 #define start_angle 45      // start angle
-#define end_angle 135       // terminal angle
+#define end_angle 180-start_angle       // terminal angle
 
 
 Servo limited_movement;     // limited movement servo
 
 void setup(){
     limited_movement.attach(pin_cont);
+    limited_movement.write(start_angle);
     Serial.begin(9600);
     Serial.println("Hello World!");
     limited_movement.write(start_angle);
@@ -30,6 +31,7 @@ int current_angle = start_angle;
 void loop(){
     if(digitalRead(pin_button) && !jumping) {
         jumping = true;
+        Serial.println("JUMPING");
     }
 
     if(jumping){
