@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "port": "COM3",
     "programmer": "arduino:avrispmkii",
-    "sketch": "roller.ino\\roller.ino"
+    "sketch": "up_down\\up_down.ino"
 }
