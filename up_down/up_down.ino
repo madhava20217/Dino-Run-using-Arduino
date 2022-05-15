@@ -1,3 +1,5 @@
+//TODO: timestamp implementation to find cooldown time.
+
 #include <Arduino.h>
 #include <Servo.h>
 
