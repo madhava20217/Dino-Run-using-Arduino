@@ -1,5 +1,6 @@
 //TODO: timestamp implementation to find cooldown time.
 
+
 #include <Arduino.h>
 #include <Servo.h>
 
@@ -8,8 +9,8 @@
 
 #define inp_step 1          // step size for limited servo
 
-#define start_angle 45      // start angle
-#define end_angle 135       // terminal angle
+int start_angle = 90;                   // start angle
+int end_angle = 180-start_angle;        // terminal angle
 
 
 Servo limited_movement;     // limited movement servo
@@ -19,7 +20,6 @@ void setup(){
     limited_movement.write(start_angle);
     Serial.begin(9600);
     Serial.println("Hello World!");
-    limited_movement.write(start_angle);
 
     pinMode(pin_button, INPUT);
     pinMode(LED_BUILTIN, OUTPUT);
@@ -34,7 +34,7 @@ void loop(){
     if(digitalRead(pin_button) && !jumping) {
         jumping = true;
         up = 1;
-        Serial.println("JUMPING");
+        // Serial.println("JUMPING");
     }
 
     if(jumping){
