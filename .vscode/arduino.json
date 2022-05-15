@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "port": "COM3",
     "programmer": "arduino:avrispmkii",
-    "sketch": "up_down\\up_down.ino"
+    "sketch": "conveyor_belt\\conveyor_belt.ino"
 }
