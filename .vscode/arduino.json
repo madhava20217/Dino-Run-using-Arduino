@@ -1,6 +1,6 @@
 {
     "board": "arduino:avr:uno",
-    "port": "COM3",
+    "port": "COM5",
     "programmer": "arduino:avrispmkii",
-    "sketch": "Impact_sensor\\Impact_sensor.ino"
+    "sketch": "conveyor_belt\\conveyor_belt.ino"
 }

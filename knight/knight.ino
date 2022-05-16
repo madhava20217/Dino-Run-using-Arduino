@@ -1,6 +1,9 @@
 #include <Arduino.h>
 #include <Servo.h>
 
+#define START_ANGLE 115
+#define END_ANGLE 160
+
 int threshold = 30;         //creates an alarm if greater than the value specified
 
 int shck_pin = 5;           // pin for shock sensor
@@ -30,5 +33,10 @@ void loop(){
     // }
     pulseIn(shck_pin, HIGH);
     
-    movt.write(0);
+    movt.write(START_ANGLE);
+    Serial.println(START_ANGLE);
+    delay(5000);
+    movt.write(END_ANGLE);
+    Serial.println("END ANGLE");
+    delay(5000);
 }
