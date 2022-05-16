@@ -45,8 +45,9 @@ void loop(){
     int in = digitalRead(button);
     if(in == HIGH){
         if(start == 0 && !cooldown){
+
             // jump
-            jump_down();
+            movt.write(END_ANGLE);
             start = millis();
         }
     }
@@ -54,7 +55,7 @@ void loop(){
         // pulse = pulseIn(shck_pin, HIGH);
         // Serial.println("Jump pulse: ");
         // Serial.println(pulse);
-        jump_up();
+        movt.write(START_ANGLE);
     }
     if(start != 0 && millis()-start > JUMP_TIME+cooldown_time){
         // pulse = pulseIn(shck_pin, HIGH);
