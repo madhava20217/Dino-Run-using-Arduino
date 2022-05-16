@@ -4,6 +4,9 @@
 #define START_ANGLE 115
 #define END_ANGLE 160
 
+const int pingPin = 13; // Trigger Pin of Ultrasonic Sensor
+const int echoPin = 12; // Echo Pin of Ultrasonic Sensor
+
 const int JUMP_TIME = 1000;
 const int cooldown_time = 1000;
 
@@ -34,6 +37,18 @@ int i = 1;
 
 void loop(){
 
+    long duration, inches, cm;
+   pinMode(pingPin, OUTPUT);
+   digitalWrite(pingPin, LOW);
+   delayMicroseconds(2);
+   digitalWrite(pingPin, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(pingPin, LOW);
+   pinMode(echoPin, INPUT);
+   duration = pulseIn(echoPin, HIGH);
+   inches = microsecondsToInches(duration);
+   cm = microsecondsToCentimeters(duration);
+
     int pulse = pulseIn(shck_pin, HIGH);
     if(pulse >= threshold)
         {
@@ -42,7 +57,9 @@ void loop(){
             //exit(0);
         }
 
-    int in = digitalRead(button);
+    //int in = digitalRead(button);
+    Serial.println(cm);
+    int in = (cm < 10) ? HIGH: LOW;
     if(in == HIGH){
         if(start == 0 && !cooldown){
 
@@ -80,4 +97,12 @@ void gameover(){
     delay(1000);
 
     beginning = millis();
+}
+
+long microsecondsToInches(long microseconds) {
+   return microseconds / 74 / 2;
+}
+
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
 }
