@@ -5,6 +5,7 @@
 #define END_ANGLE 160
 
 const int JUMP_TIME = 1000;
+const int cooldown_time = 1000;
 
 int threshold = 10000;
 
@@ -25,7 +26,7 @@ void setup(){
 }
 
 int start;      // for storing time of jumping
-bool pressed = false;
+bool cooldown = false;
 
 void loop(){
 
@@ -36,16 +37,18 @@ void loop(){
     int in = digitalRead(button);
     if(in == HIGH){
         //Serial.println("YEET");
-        if(start == 0){
+        if(start == 0 && !cooldown){
             // jump
             jump_down();
             start = millis();
         }
     }
     if(start != 0 && millis() - start > JUMP_TIME){
-            start = 0;
-            jump_up();
-        }
+        jump_up();
+    }
+    if(start != 0 && millis()-start > JUMP_TIME+cooldown_time){
+        start = 0;
+    }
 
 }
 
