@@ -1,6 +1,6 @@
 {
     "board": "arduino:avr:uno",
-    "port": "COM5",
+    "port": "COM3",
     "programmer": "arduino:avrispmkii",
-    "sketch": "conveyor_belt\\conveyor_belt.ino"
+    "sketch": "knight\\knight.ino"
 }
