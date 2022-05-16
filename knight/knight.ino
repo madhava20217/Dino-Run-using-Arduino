@@ -52,17 +52,15 @@ void loop(){
         }
     }
     if(start != 0 && millis() - start > JUMP_TIME){
-        // pulse = pulseIn(shck_pin, HIGH);
-        // Serial.println("Jump pulse: ");
-        // Serial.println(pulse);
         movt.write(START_ANGLE);
-    }
-    if(start != 0 && millis()-start > JUMP_TIME+cooldown_time){
-        // pulse = pulseIn(shck_pin, HIGH);
-        // Serial.println("Cooldown pulse: ");
-        // Serial.println(pulse);
         start = 0;
     }
+    // if(start != 0 && millis()-start > JUMP_TIME+cooldown_time){
+    //     // pulse = pulseIn(shck_pin, HIGH);
+    //     // Serial.println("Cooldown pulse: ");
+    //     // Serial.println(pulse);
+    //     start = 0;
+    // }
 
 }
 
