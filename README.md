@@ -11,3 +11,11 @@ Laser cutting techniques were employed to cut out the frames and characters, whi
 5. Buttons (for resetting / testing)
 6. Ultrasonic distance sensor (for input)
 7. Breadboards (for assembling)
+
+![Front view](/Images%20and%20Videos/Final%20Game.jpeg)
+
+## Demonstration
+
+Please check the 'Images and Videos' directory to get a higher quality MP4 video.
+
+<img src = "Images and Videos/game_demo_gif.gif" alt="Game Demo GIF" width = "100%">
